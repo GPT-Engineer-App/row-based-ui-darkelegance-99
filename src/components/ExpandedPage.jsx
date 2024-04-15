@@ -58,7 +58,15 @@ const ExpandedPage = ({ isOpen, onClose }) => {
                 {field.headline}
               </Box>
               <Box as="p" fontSize="md">
-                {field.description}
+                {field.headline === 'What Happened' ? 'Description of the incident' :
+                 field.headline === 'Short Summary' ? 'Brief overview of the situation' :
+                 field.headline === 'Annotations' ? 'Key terms extracted from the chat' :
+                 field.headline === 'Parties Involved' ? 'People or entities involved' :
+                 field.headline === 'Consequences' ? 'Outcomes of the incident' :  
+                 field.headline === 'Cost' ? 'Cost of the AI chat interaction' :
+                 field.headline === 'Chat History' ? 'Full transcript of the chat' :
+                 field.headline === 'Direct Cause' ? 'Immediate trigger of the incident' :
+                 'Explanation of the incident'}
               </Box>
             </Box>
             <Box width="60%">
