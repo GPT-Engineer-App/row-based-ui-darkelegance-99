@@ -5,42 +5,39 @@ import { FaTimes } from "react-icons/fa";
 const fields = [
   {
     headline: "What Happened",
-    description: "Heavy machinery fell on the claimant while they were working.",
+    description: "Brief description of the incident",
   },
   {
     headline: "Short Summary",
-    description: "The user was involved in a workplace accident where heavy machinery fell on them. This incident occurred a couple of days ago, and legal proceedings were initiated in April of this year. The user was the only person involved and is currently unsure of the direct cause of the accident. As a result of the incident, the user is unable to work, which is negatively impacting their financial health.",
+    description: "Concise summary of the case",
   },
   {
     headline: "Annotations",
-    description: '["workplace accident","heavy machinery","legal proceedings","financial health"]',
+    description: "Key terms related to the case",
   },
   {
     headline: "Parties Involved",
-    description: '["user"]',
+    description: "Individuals involved in the incident",
   },
   {
     headline: "Consequences",
-    description: '["unable to work","negative impact on financial health"]',
+    description: "Impact of the incident on the claimant",
   },
   {
     headline: "Cost",
-    description: "0.13067",
+    description: "Cost of the AI analysis",
   },
   {
     headline: "Chat History",
-    description: `[{"role":"assistant","content":"Hello! I'm here to help you with your situation. Let's begin with:  \\nWhat can I help you with? "},
-{"role":"user","content":"I was working my shift when some heavy machinery suddenly fell ontop of me."},
-...
-{"role":"user","content":"Correct"}]`,
+    description: "Conversation between the AI and claimant",
   },
   {
     headline: "Direct Cause",
-    description: "unknown",
+    description: "Immediate cause of the incident",
   },
   {
     headline: "How It Happened",
-    description: "The cause of the heavy machinery falling is unknown.",
+    description: "Description of how the incident occurred",
   },
 ];
 
