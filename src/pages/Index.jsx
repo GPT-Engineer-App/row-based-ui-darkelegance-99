@@ -42,7 +42,8 @@ const Index = () => {
     </Modal>
   );
 
-  const openChatHistory = () => {
+  const openChatHistory = (chatHistory) => {
+    setSelectedChatHistory(chatHistory);
     setIsChatHistoryOpen(true);
   };
 
@@ -102,13 +103,7 @@ const Index = () => {
                   {item.created_at.slice(0, 16)}
                 </Td>
                 <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
-                  <Button
-                    variant="unstyled"
-                    onClick={() => {
-                      setSelectedChatHistory(item.chat_history);
-                      openChatHistory();
-                    }}
-                  >
+                  <Button variant="unstyled" onClick={() => openChatHistory(item.chat_history)}>
                     <Box display="flex" alignItems="center">
                       <FaExternalLinkAlt />
                       <Box ml={2}>See Chat History</Box>
