@@ -29,24 +29,25 @@ const Index = () => {
     setIsExpanded(!isExpanded);
   };
 
-  const openChatHistory = (chatHistory) => {
-    const ChatHistoryModal = () => (
-      <Modal isOpen onClose={() => setIsChatHistoryOpen(false)}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Chat History</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <pre>{chatHistory}</pre>
-          </ModalBody>
-        </ModalContent>
-      </Modal>
-    );
+  const ChatHistoryModal = ({ isOpen, onClose, chatHistory }) => (
+    <Modal isOpen={isOpen} onClose={onClose}>
+      <ModalOverlay />
+      <ModalContent>
+        <ModalHeader>Chat History</ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>
+          <pre>{chatHistory}</pre>
+        </ModalBody>
+      </ModalContent>
+    </Modal>
+  );
 
+  const openChatHistory = () => {
     setIsChatHistoryOpen(true);
   };
 
   const [isChatHistoryOpen, setIsChatHistoryOpen] = useState(false);
+  const [selectedChatHistory, setSelectedChatHistory] = useState("");
 
   return (
     <Box bg="gray.900" minH="100vh" p={4}>
@@ -101,7 +102,13 @@ const Index = () => {
                   {item.created_at.slice(0, 16)}
                 </Td>
                 <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
-                  <Button variant="unstyled" onClick={() => openChatHistory(item.chat_history)}>
+                  <Button
+                    variant="unstyled"
+                    onClick={() => {
+                      setSelectedChatHistory(item.chat_history);
+                      openChatHistory();
+                    }}
+                  >
                     <Box display="flex" alignItems="center">
                       <FaExternalLinkAlt />
                       <Box ml={2}>See Chat History</Box>
@@ -114,6 +121,7 @@ const Index = () => {
         </Table>
       </TableContainer>
       <ExpandedPage isOpen={isExpanded} onClose={toggleExpand} />
+      <ChatHistoryModal isOpen={isChatHistoryOpen} onClose={() => setIsChatHistoryOpen(false)} chatHistory={selectedChatHistory} />
     </Box>
   );
 };
