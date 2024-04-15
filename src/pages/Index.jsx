@@ -37,16 +37,13 @@ const Index = () => {
                 Result
               </Th>
               <Th color="white" maxW="300px">
-                Case Started
-              </Th>
-              <Th color="white" maxW="300px">
                 Personal Injury
               </Th>
               <Th color="white" maxW="300px">
-                Situation Begin
+                Case Started
               </Th>
               <Th color="white" maxW="300px">
-                Type Injury
+                Situation Begin
               </Th>
               <Th color="white" maxW="300px">
                 Created At
@@ -67,16 +64,13 @@ const Index = () => {
                   <ResultTag result={item.result} />
                 </Td>
                 <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
-                  {item.case_started}
-                </Td>
-                <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
                   {item.personal_injury ? "Yes" : "No"}
                 </Td>
                 <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
-                  {item.situation_begin}
+                  {item.case_started}
                 </Td>
                 <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
-                  {item.type_injury}
+                  {item.situation_begin}
                 </Td>
                 <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
                   {item.created_at.slice(0, 16)}
