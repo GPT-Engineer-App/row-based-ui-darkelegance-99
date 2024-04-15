@@ -23,28 +23,28 @@ const Index = () => {
         <Table variant="simple" size="md">
           <Thead>
             <Tr>
-              <Th color="white" maxWidth="300px">
+              <Th color="white" maxW="300px">
                 Created At
               </Th>
-              <Th color="white" maxWidth="300px">
+              <Th color="white" maxW="300px">
                 Case Started
               </Th>
-              <Th color="white" maxWidth="300px">
+              <Th color="white" maxW="300px">
                 Personal Injury
               </Th>
-              <Th color="white" maxWidth="300px">
+              <Th color="white" maxW="300px">
                 Result
               </Th>
-              <Th color="white" maxWidth="300px">
+              <Th color="white" maxW="300px">
                 Situation Begin
               </Th>
-              <Th color="white" maxWidth="300px">
+              <Th color="white" maxW="300px">
                 Type Injury
               </Th>
-              <Th color="white" maxWidth="300px">
+              <Th color="white" maxW="300px">
                 What Happened
               </Th>
-              <Th color="white" maxWidth="300px">
+              <Th color="white" maxW="300px">
                 How Happened
               </Th>
             </Tr>
@@ -52,14 +52,14 @@ const Index = () => {
           <Tbody>
             {data.map((item, index) => (
               <Tr key={item.id} bg={index % 2 === 0 ? "gray.900" : "gray.700"} color="white">
-                <Td maxWidth="300px">{item.created_at}</Td>
-                <Td maxWidth="300px">{item.case_started}</Td>
-                <Td maxWidth="300px">{item.personal_injury ? "Yes" : "No"}</Td>
-                <Td maxWidth="300px">{item.result}</Td>
-                <Td maxWidth="300px">{item.situation_begin}</Td>
-                <Td maxWidth="300px">{item.type_injury}</Td>
-                <Td maxWidth="300px">{item.what_happened}</Td>
-                <Td maxWidth="300px">{item.how_happened}</Td>
+                <Td maxW="300px">{item.created_at}</Td>
+                <Td maxW="300px">{item.case_started}</Td>
+                <Td maxW="300px">{item.personal_injury ? "Yes" : "No"}</Td>
+                <Td maxW="300px">{item.result}</Td>
+                <Td maxW="300px">{item.situation_begin}</Td>
+                <Td maxW="300px">{item.type_injury}</Td>
+                <Td maxW="300px">{item.what_happened}</Td>
+                <Td maxW="300px">{item.how_happened}</Td>
               </Tr>
             ))}
           </Tbody>
