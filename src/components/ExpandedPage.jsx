@@ -38,6 +38,15 @@ const fields = [
 ];
 
 const ExpandedPage = ({ isOpen, onClose }) => {
+  const firstColRef = React.useRef();
+  const [firstColHeight, setFirstColHeight] = React.useState(0);
+
+  React.useEffect(() => {
+    if (firstColRef.current) {
+      setFirstColHeight(firstColRef.current.clientHeight);
+    }
+  }, []);
+
   return (
     <Slide direction="right" in={isOpen} style={{ zIndex: 10 }}>
       <Box p="40px" color="white" mt="4" bg="gray.800" rounded="md" shadow="md" width="70%" height="100vh" position="fixed" top="0" right="0" overflowY="auto">
@@ -46,7 +55,7 @@ const ExpandedPage = ({ isOpen, onClose }) => {
         </Button>
         {fields.map((field, index) => (
           <Box key={index} display="flex" width="100%" mb={6}>
-            <Box width="40%" pr={4}>
+            <Box width="40%" pr={4} ref={firstColRef}>
               <Box as="h4" fontSize="xl" fontWeight="bold" mb={2}>
                 {field.headline}
               </Box>
@@ -55,7 +64,7 @@ const ExpandedPage = ({ isOpen, onClose }) => {
               </Box>
             </Box>
             <Box width="60%">
-              <Box width="100%" bg="gray.700" borderRadius="md" p={2} whiteSpace="pre-wrap">
+              <Box width="100%" bg="gray.700" borderRadius="md" p={2} whiteSpace="pre-wrap" minHeight={`${firstColHeight}px`}>
                 {field.description}
               </Box>
             </Box>
