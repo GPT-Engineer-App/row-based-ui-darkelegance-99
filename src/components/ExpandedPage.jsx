@@ -32,13 +32,6 @@ const fields = [
     description: '["workplace accident","heavy machinery","legal proceedings","financial health"]',
   },
   {
-    headline: "Chat History",
-    description: `[{"role":"assistant","content":"Hello! I'm here to help you with your situation. Let's begin with:  \\nWhat can I help you with? "},
-{"role":"user","content":"I was working my shift when some heavy machinery suddenly fell ontop of me."},
-...
-{"role":"user","content":"Correct"}]`,
-  },
-  {
     headline: "Cost",
     description: "0.13067",
   },

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Box, Table, Thead, Tbody, Tr, Th, Td, TableContainer, Button } from "@chakra-ui/react";
-import { FaExpandAlt } from "react-icons/fa";
+import { FaExpandAlt, FaExternalLinkAlt } from "react-icons/fa";
 import ResultTag from "../components/ResultTag";
 import ExpandedPage from "../components/ExpandedPage";
 
 const Index = () => {
-  // Dummy data for demonstration
   const data = [
     {
       id: 1,
@@ -17,6 +16,10 @@ const Index = () => {
       type_injury: "Occupational accidents",
       what_happened: "Heavy machinery fell on the claimant while they were working.",
       how_happened: "The cause of the heavy machinery falling is unknown.",
+      chat_history: `[{"role":"assistant","content":"Hello! I'm here to help you with your situation. Let's begin with:  \\nWhat can I help you with? "},
+{"role":"user","content":"I was working my shift when some heavy machinery suddenly fell ontop of me."},
+...
+{"role":"user","content":"Correct"}]`,
     },
   ];
 
@@ -24,6 +27,11 @@ const Index = () => {
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
+  };
+
+  const openChatHistory = (chatHistory) => {
+    const chatHistoryWindow = window.open("", "_blank");
+    chatHistoryWindow.document.write(`<pre>${chatHistory}</pre>`);
   };
 
   return (
@@ -47,6 +55,9 @@ const Index = () => {
               </Th>
               <Th color="white" maxW="300px">
                 Created At
+              </Th>
+              <Th color="white" maxW="300px">
+                Chat History
               </Th>
             </Tr>
           </Thead>
@@ -74,6 +85,13 @@ const Index = () => {
                 </Td>
                 <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
                   {item.created_at.slice(0, 16)}
+                </Td>
+                <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
+                  <Button variant="unstyled" onClick={() => openChatHistory(item.chat_history)}>
+                    <Box p={1}>
+                      <FaExternalLinkAlt />
+                    </Box>
+                  </Button>
                 </Td>
               </Tr>
             ))}
