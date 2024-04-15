@@ -8,12 +8,12 @@ const fields = [
     description: "Heavy machinery fell on the claimant while they were working.",
   },
   {
-    headline: "Short Summary",
-    description: "The user was involved in a workplace accident where heavy machinery fell on them. This incident occurred a couple of days ago, and legal proceedings were initiated in April of this year. The user was the only person involved and is currently unsure of the direct cause of the accident. As a result of the incident, the user is unable to work, which is negatively impacting their financial health.",
+    headline: "How It Happened",
+    description: "The cause of the heavy machinery falling is unknown.",
   },
   {
-    headline: "Annotations",
-    description: '["workplace accident","heavy machinery","legal proceedings","financial health"]',
+    headline: "Short Summary",
+    description: "The user was involved in a workplace accident where heavy machinery fell on them. This incident occurred a couple of days ago, and legal proceedings were initiated in April of this year. The user was the only person involved and is currently unsure of the direct cause of the accident. As a result of the incident, the user is unable to work, which is negatively impacting their financial health.",
   },
   {
     headline: "Parties Involved",
@@ -24,8 +24,12 @@ const fields = [
     description: '["unable to work","negative impact on financial health"]',
   },
   {
-    headline: "Cost",
-    description: "0.13067",
+    headline: "Direct Cause",
+    description: "unknown",
+  },
+  {
+    headline: "Annotations",
+    description: '["workplace accident","heavy machinery","legal proceedings","financial health"]',
   },
   {
     headline: "Chat History",
@@ -35,12 +39,8 @@ const fields = [
 {"role":"user","content":"Correct"}]`,
   },
   {
-    headline: "Direct Cause",
-    description: "unknown",
-  },
-  {
-    headline: "How It Happened",
-    description: "The cause of the heavy machinery falling is unknown.",
+    headline: "Cost",
+    description: "0.13067",
   },
 ];
 
@@ -58,15 +58,7 @@ const ExpandedPage = ({ isOpen, onClose }) => {
                 {field.headline}
               </Box>
               <Box as="p" fontSize="md">
-                {field.headline === 'What Happened' ? 'Description of the incident' :
-                 field.headline === 'Short Summary' ? 'Brief overview of the situation' :
-                 field.headline === 'Annotations' ? 'Key terms extracted from the chat' :
-                 field.headline === 'Parties Involved' ? 'People or entities involved' :
-                 field.headline === 'Consequences' ? 'Outcomes of the incident' :  
-                 field.headline === 'Cost' ? 'Cost of the AI chat interaction' :
-                 field.headline === 'Chat History' ? 'Full transcript of the chat' :
-                 field.headline === 'Direct Cause' ? 'Immediate trigger of the incident' :
-                 'Explanation of the incident'}
+                {field.headline === "What Happened" ? "Description of the incident" : field.headline === "Short Summary" ? "Brief overview of the situation" : field.headline === "Annotations" ? "Key terms extracted from the chat" : field.headline === "Parties Involved" ? "People or entities involved" : field.headline === "Consequences" ? "Outcomes of the incident" : field.headline === "Cost" ? "Cost of the AI chat interaction" : field.headline === "Chat History" ? "Full transcript of the chat" : field.headline === "Direct Cause" ? "Immediate trigger of the incident" : "Explanation of the incident"}
               </Box>
             </Box>
             <Box width="60%">
