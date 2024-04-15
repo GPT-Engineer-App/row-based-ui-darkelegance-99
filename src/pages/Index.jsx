@@ -22,6 +22,36 @@ const Index = () => {
 ...
 {"role":"user","content":"Correct"}]`,
     },
+    {
+      id: 2,
+      created_at: "2024-04-12 09:15:22.358741+00",
+      case_started: "2024-03-28",
+      personal_injury: false,
+      result: "requires attention",
+      situation_begin: "2024-04-10",
+      type_injury: "Slip and fall",
+      what_happened: "The claimant slipped on a wet floor at a grocery store.",
+      how_happened: "There were no warning signs about the wet floor.",
+      chat_history: `[{"role":"assistant","content":"Hi there, I understand you had a slip and fall accident. Can you tell me more about what happened?"},
+{"role":"user","content":"I was shopping at the grocery store and slipped on a wet floor. There were no signs warning about it."},
+...
+{"role":"user","content":"Yes, that's correct."}]`,
+    },
+    {
+      id: 3,
+      created_at: "2024-04-12 14:37:09.185294+00",
+      case_started: "2024-04-05",
+      personal_injury: true,
+      result: "denied",
+      situation_begin: "2024-04-11",
+      type_injury: "Car accident",
+      what_happened: "The claimant was rear-ended while stopped at a red light.",
+      how_happened: "The other driver was distracted and did not brake in time.",
+      chat_history: `[{"role":"assistant","content":"I'm sorry to hear about your car accident. Let's go over the details. When and where did this happen?"},
+{"role":"user","content":"It happened yesterday around 5pm. I was stopped at a red light and suddenly got rear-ended."},
+...  
+{"role":"user","content":"No, that covers it. Thanks for your help."}]`,
+    },
   ];
 
   const [isExpanded, setIsExpanded] = useState(false);
