@@ -25,6 +25,9 @@ const Index = () => {
           <Thead>
             <Tr>
               <Th color="white" maxW="300px">
+                Result
+              </Th>
+              <Th color="white" maxW="300px">
                 Created At
               </Th>
               <Th color="white" maxW="300px">
@@ -32,9 +35,6 @@ const Index = () => {
               </Th>
               <Th color="white" maxW="300px">
                 Personal Injury
-              </Th>
-              <Th color="white" maxW="300px">
-                Result
               </Th>
               <Th color="white" maxW="300px">
                 Situation Begin
@@ -54,16 +54,16 @@ const Index = () => {
             {data.map((item, index) => (
               <Tr key={item.id} bg={index % 2 === 0 ? "gray.900" : "gray.700"} color="white">
                 <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
-                  {item.created_at}
+                  <ResultTag result={item.result} />
+                </Td>
+                <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
+                  {item.created_at.slice(0, 16)}
                 </Td>
                 <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
                   {item.case_started}
                 </Td>
                 <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
                   {item.personal_injury ? "Yes" : "No"}
-                </Td>
-                <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
-                  <ResultTag result={item.result} />
                 </Td>
                 <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
                   {item.situation_begin}
