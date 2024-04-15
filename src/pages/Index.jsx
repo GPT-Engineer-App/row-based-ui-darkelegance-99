@@ -32,7 +32,7 @@ const Index = () => {
         <Table variant="simple" size="md">
           <Thead>
             <Tr>
-              <Th color="white"></Th>
+              <Th color="white" p={1}></Th>
               <Th color="white" maxW="300px">
                 Result
               </Th>
@@ -56,9 +56,9 @@ const Index = () => {
           <Tbody>
             {data.map((item, index) => (
               <Tr key={item.id} bg={index % 2 === 0 ? "gray.900" : "gray.700"} color="white">
-                <Td display="flex" justifyContent="center">
+                <Td p={1}>
                   <Button variant="unstyled" onClick={toggleExpand}>
-                    <Box borderWidth={1} borderRadius="md" p={1}>
+                    <Box p={1}>
                       <FaExpandAlt />
                     </Box>
                   </Button>
