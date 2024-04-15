@@ -29,18 +29,29 @@ const Index = () => {
     setIsExpanded(!isExpanded);
   };
 
-  const ChatHistoryModal = ({ isOpen, onClose, chatHistory }) => (
-    <Modal isOpen={isOpen} onClose={onClose} size="4xl">
-      <ModalOverlay />
-      <ModalContent bg="gray.900" color="white" height="600px">
-        <ModalHeader>Chat History</ModalHeader>
-        <ModalCloseButton />
-        <ModalBody>
-          <pre>{chatHistory}</pre>
-        </ModalBody>
-      </ModalContent>
-    </Modal>
-  );
+  const ChatHistoryModal = ({ isOpen, onClose, chatHistory }) => {
+    const messages = JSON.parse(chatHistory);
+
+    return (
+      <Modal isOpen={isOpen} onClose={onClose} size="4xl">
+        <ModalOverlay />
+        <ModalContent bg="gray.900" color="white" height="600px">
+          <ModalHeader>Chat History</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody overflowY="auto">
+            {messages.map((message, index) => (
+              <Box key={index} bg={message.role === "assistant" ? "blue.500" : "gray.700"} p={3} borderRadius="md" mb={4}>
+                <Box fontWeight="bold" mb={1}>
+                  {message.role === "assistant" ? "Assistant" : "User"}
+                </Box>
+                <Box whiteSpace="pre-wrap">{message.content}</Box>
+              </Box>
+            ))}
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    );
+  };
 
   const openChatHistory = (chatHistory) => {
     setSelectedChatHistory(chatHistory);
