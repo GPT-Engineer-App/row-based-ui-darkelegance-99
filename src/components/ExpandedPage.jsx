@@ -45,7 +45,7 @@ const ExpandedPage = ({ isOpen, onClose }) => {
   return (
     <Slide direction="right" in={isOpen} style={{ zIndex: 10 }}>
       <Box p="40px" color="white" mt="4" bg="gray.800" rounded="md" shadow="md" width="70%" height="100vh" position="fixed" top="0" right="0" overflowY="auto">
-        <Button position="absolute" top={4} right={4} onClick={onClose} variant="unstyled" color="white" _hover={{ color: "gray.300" }}>
+        <Button onClick={onClose} variant="unstyled" color="white" _hover={{ color: "gray.300" }}>
           <FaTimes />
         </Button>
         {fields.map((field, index) => (
@@ -59,7 +59,9 @@ const ExpandedPage = ({ isOpen, onClose }) => {
               </Box>
             </Box>
             <Box width="60%">
-              <Box as="textarea" width="100%" height="100px" bg="gray.700" borderRadius="md" p={2}></Box>
+              <Box width="100%" bg="gray.700" borderRadius="md" p={2}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nulla sit amet aliquam lacinia, nisl nisl aliquam nisl, nec aliquam nisl nisl sit amet nisl. Sed euismod, nulla sit amet aliquam lacinia, nisl nisl aliquam nisl, nec aliquam nisl nisl sit amet nisl.
+              </Box>
             </Box>
           </Box>
         ))}
