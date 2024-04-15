@@ -30,9 +30,9 @@ const Index = () => {
   };
 
   const ChatHistoryModal = ({ isOpen, onClose, chatHistory }) => (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={onClose} size="4xl">
       <ModalOverlay />
-      <ModalContent>
+      <ModalContent bg="gray.900" color="white" height="600px">
         <ModalHeader>Chat History</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
