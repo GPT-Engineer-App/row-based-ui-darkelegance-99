@@ -6,21 +6,14 @@ const Index = () => {
   const data = [
     {
       id: 1,
-      created_at: "2023-04-15T10:30:00Z",
-      case_started: "2023-04-01",
+      created_at: "2024-04-15 07:42:38.763008+00",
+      case_started: "2024-04-01",
       personal_injury: true,
-      result: "Settled",
-      situation_begin: "2023-03-15",
-      type_injury: "Slip and Fall",
-      what_happened: "Slipped on wet floor in grocery store",
-      short_summary: "Customer slipped on wet floor, injured back",
-      annotations: "Surveillance video available",
-      parties_involved: "Customer, Store Manager",
-      consequences: "Back injury, medical bills",
-      cost: 5000.0,
-      chat_history: { user: "Hi, I slipped and fell in your store", agent: "I'm sorry to hear that. Can you provide more details?" },
-      direct_cause: "Wet floor without warning sign",
-      how_happened: "Customer walking, slipped on wet spot",
+      result: "accepted",
+      situation_begin: "2024-04-13",
+      type_injury: "Occupational accidents",
+      what_happened: "Heavy machinery fell on the claimant while they were working.",
+      how_happened: "The cause of the heavy machinery falling is unknown.",
     },
   ];
 
@@ -30,28 +23,28 @@ const Index = () => {
         <Table variant="simple" size="md">
           <Thead>
             <Tr>
-              <Th color="white" width="150px">
+              <Th color="white" minWidth="300px">
                 Created At
               </Th>
-              <Th color="white" width="150px">
+              <Th color="white" minWidth="300px">
                 Case Started
               </Th>
-              <Th color="white" width="150px">
+              <Th color="white" minWidth="300px">
                 Personal Injury
               </Th>
-              <Th color="white" width="150px">
+              <Th color="white" minWidth="300px">
                 Result
               </Th>
-              <Th color="white" width="150px">
+              <Th color="white" minWidth="300px">
                 Situation Begin
               </Th>
-              <Th color="white" width="150px">
+              <Th color="white" minWidth="300px">
                 Type Injury
               </Th>
-              <Th color="white" width="200px">
+              <Th color="white" minWidth="300px">
                 What Happened
               </Th>
-              <Th color="white" width="200px">
+              <Th color="white" minWidth="300px">
                 How Happened
               </Th>
             </Tr>
@@ -59,14 +52,14 @@ const Index = () => {
           <Tbody>
             {data.map((item, index) => (
               <Tr key={item.id} bg={index % 2 === 0 ? "gray.900" : "gray.700"} color="white">
-                <Td>{item.created_at}</Td>
-                <Td>{item.case_started}</Td>
-                <Td>{item.personal_injury ? "Yes" : "No"}</Td>
-                <Td>{item.result}</Td>
-                <Td>{item.situation_begin}</Td>
-                <Td>{item.type_injury}</Td>
-                <Td>{item.what_happened}</Td>
-                <Td>{item.how_happened}</Td>
+                <Td minWidth="300px">{item.created_at}</Td>
+                <Td minWidth="300px">{item.case_started}</Td>
+                <Td minWidth="300px">{item.personal_injury ? "Yes" : "No"}</Td>
+                <Td minWidth="300px">{item.result}</Td>
+                <Td minWidth="300px">{item.situation_begin}</Td>
+                <Td minWidth="300px">{item.type_injury}</Td>
+                <Td minWidth="300px">{item.what_happened}</Td>
+                <Td minWidth="300px">{item.how_happened}</Td>
               </Tr>
             ))}
           </Tbody>
