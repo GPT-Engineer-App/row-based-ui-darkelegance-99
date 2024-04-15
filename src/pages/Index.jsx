@@ -30,21 +30,30 @@ const Index = () => {
         <Table variant="simple" size="md">
           <Thead>
             <Tr>
-              <Th color="white">Created At</Th>
-              <Th color="white">Case Started</Th>
-              <Th color="white">Personal Injury</Th>
-              <Th color="white">Result</Th>
-              <Th color="white">Situation Begin</Th>
-              <Th color="white">Type Injury</Th>
-              <Th color="white">What Happened</Th>
-              <Th color="white">Short Summary</Th>
-              <Th color="white">Annotations</Th>
-              <Th color="white">Parties Involved</Th>
-              <Th color="white">Consequences</Th>
-              <Th color="white">Cost</Th>
-              <Th color="white">Chat History</Th>
-              <Th color="white">Direct Cause</Th>
-              <Th color="white">How Happened</Th>
+              <Th color="white" width="150px">
+                Created At
+              </Th>
+              <Th color="white" width="150px">
+                Case Started
+              </Th>
+              <Th color="white" width="150px">
+                Personal Injury
+              </Th>
+              <Th color="white" width="150px">
+                Result
+              </Th>
+              <Th color="white" width="150px">
+                Situation Begin
+              </Th>
+              <Th color="white" width="150px">
+                Type Injury
+              </Th>
+              <Th color="white" width="200px">
+                What Happened
+              </Th>
+              <Th color="white" width="200px">
+                How Happened
+              </Th>
             </Tr>
           </Thead>
           <Tbody>
@@ -57,13 +66,6 @@ const Index = () => {
                 <Td>{item.situation_begin}</Td>
                 <Td>{item.type_injury}</Td>
                 <Td>{item.what_happened}</Td>
-                <Td>{item.short_summary}</Td>
-                <Td>{item.annotations}</Td>
-                <Td>{item.parties_involved}</Td>
-                <Td>{item.consequences}</Td>
-                <Td>{item.cost}</Td>
-                <Td>{JSON.stringify(item.chat_history)}</Td>
-                <Td>{item.direct_cause}</Td>
                 <Td>{item.how_happened}</Td>
               </Tr>
             ))}
