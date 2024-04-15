@@ -26,7 +26,7 @@ const Index = () => {
           </Thead>
           <Tbody>
             {data.map((item, index) => (
-              <Tr key={item.id} bg={index % 2 === 0 ? "white" : "gray.50"} color="gray.800">
+              <Tr key={item.id} bg={index % 2 === 0 ? "gray.900" : "gray.700"} color="white">
                 <Td>{item.id}</Td>
                 <Td>{item.name}</Td>
                 <Td>{item.age}</Td>
