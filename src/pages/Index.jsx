@@ -1,6 +1,8 @@
-import React from "react";
-import { Box, Table, Thead, Tbody, Tr, Th, Td, TableContainer } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Box, Table, Thead, Tbody, Tr, Th, Td, TableContainer, Button } from "@chakra-ui/react";
+import { FaExpandAlt } from "react-icons/fa";
 import ResultTag from "../components/ResultTag";
+import ExpandedPage from "../components/ExpandedPage";
 
 const Index = () => {
   // Dummy data for demonstration
@@ -18,12 +20,19 @@ const Index = () => {
     },
   ];
 
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   return (
     <Box bg="gray.900" minH="100vh" p={4}>
       <TableContainer>
         <Table variant="simple" size="md">
           <Thead>
             <Tr>
+              <Th color="white" width="40px"></Th>
               <Th color="white" maxW="300px">
                 Result
               </Th>
@@ -47,6 +56,11 @@ const Index = () => {
           <Tbody>
             {data.map((item, index) => (
               <Tr key={item.id} bg={index % 2 === 0 ? "gray.900" : "gray.700"} color="white">
+                <Td width="40px">
+                  <Button variant="unstyled" onClick={toggleExpand}>
+                    <FaExpandAlt />
+                  </Button>
+                </Td>
                 <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
                   <ResultTag result={item.result} />
                 </Td>
@@ -70,6 +84,7 @@ const Index = () => {
           </Tbody>
         </Table>
       </TableContainer>
+      <ExpandedPage isOpen={isExpanded} onClose={toggleExpand} />
     </Box>
   );
 };
