@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Table, Thead, Tbody, Tr, Th, Td, TableContainer, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter } from "@chakra-ui/react";
+import { Box, Table, Thead, Tbody, Tr, Th, Td, TableContainer, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody } from "@chakra-ui/react";
 import { FaExpandAlt, FaExternalLinkAlt } from "react-icons/fa";
 import ResultTag from "../components/ResultTag";
 import ExpandedPage from "../components/ExpandedPage";
@@ -29,34 +29,18 @@ const Index = () => {
     setIsExpanded(!isExpanded);
   };
 
-  const ChatHistoryModal = ({ isOpen, onClose, chatHistory }) => {
-    const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
-    const messages = JSON.parse(chatHistory);
-
-    const handleNext = () => {
-      if (currentMessageIndex < messages.length - 1) {
-        setCurrentMessageIndex(currentMessageIndex + 1);
-      }
-    };
-
-    return (
-      <Modal isOpen={isOpen} onClose={onClose} size="4xl">
-        <ModalOverlay />
-        <ModalContent bg="gray.900" color="white" height="600px">
-          <ModalHeader>Chat History</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody overflowY="auto">
-            <pre>{messages[currentMessageIndex]?.content}</pre>
-          </ModalBody>
-          <ModalFooter>
-            <Button onClick={handleNext} disabled={currentMessageIndex === messages.length - 1}>
-              Next
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-    );
-  };
+  const ChatHistoryModal = ({ isOpen, onClose, chatHistory }) => (
+    <Modal isOpen={isOpen} onClose={onClose} size="4xl">
+      <ModalOverlay />
+      <ModalContent bg="gray.900" color="white" height="600px">
+        <ModalHeader>Chat History</ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>
+          <pre>{chatHistory}</pre>
+        </ModalBody>
+      </ModalContent>
+    </Modal>
+  );
 
   const openChatHistory = (chatHistory) => {
     setSelectedChatHistory(chatHistory);
