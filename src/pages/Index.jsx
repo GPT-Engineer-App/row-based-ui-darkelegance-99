@@ -58,7 +58,9 @@ const Index = () => {
               <Tr key={item.id} bg={index % 2 === 0 ? "gray.900" : "gray.700"} color="white">
                 <Td width="40px">
                   <Button variant="unstyled" onClick={toggleExpand}>
-                    <FaExpandAlt />
+                    <Box borderWidth={1} borderRadius="md" p={1}>
+                      <FaExpandAlt />
+                    </Box>
                   </Button>
                 </Td>
                 <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
