@@ -16,30 +16,6 @@ const Index = () => {
       situation_begin: "2024-04-13",
       type_injury: "Occupational accidents",
       what_happened: "Heavy machinery fell on the claimant while they were working.",
-      short_summary: "The user was involved in a workplace accident where heavy machinery fell on them. This incident occurred a couple of days ago, and legal proceedings were initiated in April of this year. The user was the only person involved and is currently unsure of the direct cause of the accident. As a result of the incident, the user is unable to work, which is negatively impacting their financial health.",
-      annotations: ["workplace accident", "heavy machinery", "legal proceedings", "financial health"],
-      parties_involved: ["user"],
-      consequences: ["unable to work", "negative impact on financial health"],
-      cost: 0.13067,
-      chat_history: [
-        { role: "assistant", content: "Hello! I'm here to help you with your situation. Let's begin with:  \n**What can I help you with?** " },
-        { role: "user", content: "I was working my shift when some heavy machinery suddenly fell ontop of me." },
-        { role: "assistant", content: "Who else was involved in the incident with the heavy machinery, and what were the consequences of the accident?" },
-        { role: "user", content: "It was only me who was involved. Nobody else was around at the time. The conseqeunces are quite dire." },
-        { role: "assistant", content: "Can you describe what directly caused the heavy machinery to fall?" },
-        { role: "user", content: "I'm unsure as to what cause it. It just fell" },
-        { role: "assistant", content: "Could you tell me when this incident first occurred, and whether you have initiated any legal action? If so, when did the legal case start?" },
-        { role: "user", content: "The indicient occured a couple of days ago." },
-        { role: "assistant", content: "Have you started any legal proceedings regarding the incident? If yes, could you share the date when the legal case was initiated?" },
-        { role: "user", content: "The case started on the April this year." },
-        { role: "assistant", content: "Could you specify which year in April the legal case started?" },
-        { role: "user", content: "This year!" },
-        { role: "assistant", content: "Just to confirm, you were involved in an accident at work where heavy machinery fell on you a couple of days ago, and you started legal proceedings this April. You were the only one involved and are currently unsure of what directly caused the accident. The consequences have been quite dire. Is this correct?" },
-        { role: "user", content: "No, the consequnces are that I'm unable to work my shifts which is bad for my financial health" },
-        { role: "assistant", content: "To clarify, you were involved in an accident at work a couple of days ago where heavy machinery fell on you, and you started legal proceedings this April. You were the only one involved and are currently unsure of what directly caused the accident. The main consequence of this incident is that you are unable to work, which is affecting your financial health. Is this correct?" },
-        { role: "user", content: "Correct" },
-      ],
-      direct_cause: "unknown",
       how_happened: "The cause of the heavy machinery falling is unknown.",
     },
   ];
@@ -110,7 +86,7 @@ const Index = () => {
           </Tbody>
         </Table>
       </TableContainer>
-      <ExpandedPage isOpen={isExpanded} onClose={toggleExpand} data={data[0]} />
+      <ExpandedPage isOpen={isExpanded} onClose={toggleExpand} />
     </Box>
   );
 };
