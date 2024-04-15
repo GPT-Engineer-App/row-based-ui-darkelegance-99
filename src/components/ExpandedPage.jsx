@@ -44,13 +44,13 @@ const fields = [
 const ExpandedPage = ({ isOpen, onClose }) => {
   return (
     <Slide direction="right" in={isOpen} style={{ zIndex: 10 }}>
-      <Box p="40px" color="white" mt="4" bg="gray.800" rounded="md" shadow="md" width="50%" height="100vh" position="fixed" top="0" right="0" overflowY="auto">
+      <Box p="40px" color="white" mt="4" bg="gray.800" rounded="md" shadow="md" width="70%" height="100vh" position="fixed" top="0" right="0" overflowY="auto">
         <Button position="absolute" top={4} right={4} onClick={onClose} variant="unstyled" color="white" _hover={{ color: "gray.300" }}>
           <FaTimes />
         </Button>
         {fields.map((field, index) => (
           <Box key={index} display="flex" width="100%" mb={6}>
-            <Box width="30%" pr={4}>
+            <Box width="40%" pr={4}>
               <Box as="h4" fontSize="xl" fontWeight="bold" mb={2}>
                 {field.headline}
               </Box>
@@ -58,7 +58,7 @@ const ExpandedPage = ({ isOpen, onClose }) => {
                 {field.description}
               </Box>
             </Box>
-            <Box width="70%">
+            <Box width="60%">
               <Box as="textarea" width="100%" height="100px" bg="gray.700" borderRadius="md" p={2}></Box>
             </Box>
           </Box>
