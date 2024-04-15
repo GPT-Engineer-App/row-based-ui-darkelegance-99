@@ -5,39 +5,42 @@ import { FaTimes } from "react-icons/fa";
 const fields = [
   {
     headline: "What Happened",
-    description: "A brief description of the incident that occurred.",
+    description: "Heavy machinery fell on the claimant while they were working.",
   },
   {
     headline: "Short Summary",
-    description: "A concise summary of the key points of the incident.",
+    description: "The user was involved in a workplace accident where heavy machinery fell on them. This incident occurred a couple of days ago, and legal proceedings were initiated in April of this year. The user was the only person involved and is currently unsure of the direct cause of the accident. As a result of the incident, the user is unable to work, which is negatively impacting their financial health.",
   },
   {
     headline: "Annotations",
-    description: "Additional notes or comments related to the incident.",
+    description: '["workplace accident","heavy machinery","legal proceedings","financial health"]',
   },
   {
     headline: "Parties Involved",
-    description: "The individuals or entities involved in the incident.",
+    description: '["user"]',
   },
   {
     headline: "Consequences",
-    description: "The outcomes or repercussions resulting from the incident.",
+    description: '["unable to work","negative impact on financial health"]',
   },
   {
     headline: "Cost",
-    description: "The financial impact or expenses incurred due to the incident.",
+    description: "0.13067",
   },
   {
     headline: "Chat History",
-    description: "A record of the conversations or communications related to the incident.",
+    description: `[{"role":"assistant","content":"Hello! I'm here to help you with your situation. Let's begin with:  \\nWhat can I help you with? "},
+{"role":"user","content":"I was working my shift when some heavy machinery suddenly fell ontop of me."},
+...
+{"role":"user","content":"Correct"}]`,
   },
   {
     headline: "Direct Cause",
-    description: "The primary reason or trigger that led to the incident.",
+    description: "unknown",
   },
   {
     headline: "How It Happened",
-    description: "A detailed account of the sequence of events that occurred during the incident.",
+    description: "The cause of the heavy machinery falling is unknown.",
   },
 ];
 
@@ -59,8 +62,8 @@ const ExpandedPage = ({ isOpen, onClose }) => {
               </Box>
             </Box>
             <Box width="60%">
-              <Box width="100%" bg="gray.700" borderRadius="md" p={2}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nulla sit amet aliquam lacinia, nisl nisl aliquam nisl, nec aliquam nisl nisl sit amet nisl. Sed euismod, nulla sit amet aliquam lacinia, nisl nisl aliquam nisl, nec aliquam nisl nisl sit amet nisl.
+              <Box width="100%" bg="gray.700" borderRadius="md" p={2} whiteSpace="pre-wrap">
+                {field.description}
               </Box>
             </Box>
           </Box>
