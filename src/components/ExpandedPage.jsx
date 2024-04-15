@@ -49,7 +49,7 @@ const ExpandedPage = ({ isOpen, onClose }) => {
 
   return (
     <Slide direction="right" in={isOpen} style={{ zIndex: 10 }}>
-      <Box p="40px" color="white" mt="4" bg="gray.800" rounded="md" shadow="md" width="70%" height="100vh" position="fixed" top="0" right="0" overflowY="auto">
+      <Box p="40px" color="white" mt="4" bg="gray.800" rounded="md" shadow="md" width="75%" height="100vh" position="fixed" top="0" right="0" overflowY="auto">
         <Button onClick={onClose} variant="unstyled" color="white" _hover={{ color: "gray.300" }} position="absolute" top="40px" right="40px">
           <FaTimes />
         </Button>
