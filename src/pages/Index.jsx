@@ -52,14 +52,30 @@ const Index = () => {
           <Tbody>
             {data.map((item, index) => (
               <Tr key={item.id} bg={index % 2 === 0 ? "gray.900" : "gray.700"} color="white">
-                <Td maxW="300px">{item.created_at}</Td>
-                <Td maxW="300px">{item.case_started}</Td>
-                <Td maxW="300px">{item.personal_injury ? "Yes" : "No"}</Td>
-                <Td maxW="300px">{item.result}</Td>
-                <Td maxW="300px">{item.situation_begin}</Td>
-                <Td maxW="300px">{item.type_injury}</Td>
-                <Td maxW="300px">{item.what_happened}</Td>
-                <Td maxW="300px">{item.how_happened}</Td>
+                <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
+                  {item.created_at}
+                </Td>
+                <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
+                  {item.case_started}
+                </Td>
+                <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
+                  {item.personal_injury ? "Yes" : "No"}
+                </Td>
+                <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
+                  {item.result}
+                </Td>
+                <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
+                  {item.situation_begin}
+                </Td>
+                <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
+                  {item.type_injury}
+                </Td>
+                <Td maxW="300px" whiteSpace="normal">
+                  {item.what_happened}
+                </Td>
+                <Td maxW="300px" whiteSpace="normal">
+                  {item.how_happened}
+                </Td>
               </Tr>
             ))}
           </Tbody>
