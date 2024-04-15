@@ -36,19 +36,14 @@ const Index = () => {
         <ModalHeader>Chat History</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          {chatHistory.map((message, index) => (
-            <Box key={index} mb={4}>
-              <strong>{message.role}:</strong> {message.content}
-            </Box>
-          ))}
+          <pre>{chatHistory}</pre>
         </ModalBody>
       </ModalContent>
     </Modal>
   );
 
   const openChatHistory = (chatHistory) => {
-    const parsedChatHistory = JSON.parse(chatHistory);
-    setSelectedChatHistory(parsedChatHistory);
+    setSelectedChatHistory(chatHistory);
     setIsChatHistoryOpen(true);
   };
 
