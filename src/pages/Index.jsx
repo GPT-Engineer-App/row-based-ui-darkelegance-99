@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Box, Table, Thead, Tbody, Tr, Th, Td, TableContainer, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody } from "@chakra-ui/react";
-import { FaExpandAlt, FaExternalLinkAlt } from "react-icons/fa";
-import ResultTag from "../components/ResultTag";
+import { Box, Table, Thead, Tbody, TableContainer } from "@chakra-ui/react";
 import ExpandedPage from "../components/ExpandedPage";
+import TableHeader from "../components/TableHeader";
+import TableRow from "../components/TableRow";
+import ChatHistoryModal from "../components/ChatHistoryModal";
 
 const Index = () => {
   const data = [
@@ -24,93 +25,28 @@ const Index = () => {
   ];
 
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isChatHistoryOpen, setIsChatHistoryOpen] = useState(false);
+  const [selectedChatHistory, setSelectedChatHistory] = useState("");
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
-
-  const ChatHistoryModal = ({ isOpen, onClose, chatHistory }) => (
-    <Modal isOpen={isOpen} onClose={onClose} size="4xl">
-      <ModalOverlay />
-      <ModalContent bg="gray.900" color="white" height="600px">
-        <ModalHeader>Chat History</ModalHeader>
-        <ModalCloseButton />
-        <ModalBody>
-          <pre>{chatHistory}</pre>
-        </ModalBody>
-      </ModalContent>
-    </Modal>
-  );
 
   const openChatHistory = (chatHistory) => {
     setSelectedChatHistory(chatHistory);
     setIsChatHistoryOpen(true);
   };
 
-  const [isChatHistoryOpen, setIsChatHistoryOpen] = useState(false);
-  const [selectedChatHistory, setSelectedChatHistory] = useState("");
-
   return (
     <Box bg="gray.900" minH="100vh" p={4}>
       <TableContainer>
         <Table variant="simple" size="md">
           <Thead>
-            <Tr>
-              <Th color="white" p={1}></Th>
-              <Th color="white" maxW="300px">
-                Result
-              </Th>
-              <Th color="white" maxW="300px">
-                Personal Injury
-              </Th>
-              <Th color="white" maxW="300px">
-                Case Started
-              </Th>
-              <Th color="white" maxW="300px">
-                Situation Begin
-              </Th>
-              <Th color="white" maxW="300px">
-                Created At
-              </Th>
-              <Th color="white" maxW="300px">
-                Chat History
-              </Th>
-            </Tr>
+            <TableHeader />
           </Thead>
           <Tbody>
             {data.map((item, index) => (
-              <Tr key={item.id} bg={index % 2 === 0 ? "gray.900" : "gray.700"} color="white">
-                <Td p={1}>
-                  <Button variant="unstyled" onClick={toggleExpand}>
-                    <Box p={1}>
-                      <FaExpandAlt />
-                    </Box>
-                  </Button>
-                </Td>
-                <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
-                  <ResultTag result={item.result} />
-                </Td>
-                <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
-                  {item.personal_injury ? "Yes" : "No"}
-                </Td>
-                <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
-                  {item.case_started}
-                </Td>
-                <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
-                  {item.situation_begin}
-                </Td>
-                <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
-                  {item.created_at.slice(0, 16)}
-                </Td>
-                <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
-                  <Button variant="unstyled" onClick={() => openChatHistory(item.chat_history)}>
-                    <Box display="flex" alignItems="center">
-                      <FaExternalLinkAlt />
-                      <Box ml={2}>See Chat History</Box>
-                    </Box>
-                  </Button>
-                </Td>
-              </Tr>
+              <TableRow key={item.id} item={item} index={index} toggleExpand={toggleExpand} openChatHistory={openChatHistory} />
             ))}
           </Tbody>
         </Table>
