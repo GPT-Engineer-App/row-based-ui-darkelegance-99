@@ -9,7 +9,19 @@ const ExpandedPage = ({ isOpen, onClose }) => {
         <Button position="absolute" top={4} right={4} onClick={onClose} variant="unstyled" color="white" _hover={{ color: "gray.300" }}>
           <FaTimes />
         </Button>
-        {}
+        <Box display="flex" width="100%">
+          <Box width="30%" pr={4}>
+            <Box as="h4" fontSize="xl" fontWeight="bold" mb={2}>
+              Headline
+            </Box>
+            <Box as="p" fontSize="md">
+              Description goes here
+            </Box>
+          </Box>
+          <Box width="70%">
+            <Box as="textarea" width="100%" height="200px" bg="gray.700" borderRadius="md" p={2}></Box>
+          </Box>
+        </Box>
       </Box>
     </Slide>
   );
