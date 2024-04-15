@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Table, Thead, Tbody, Tr, Th, Td, TableContainer, Button } from "@chakra-ui/react";
+import { Box, Table, Thead, Tbody, Tr, Th, Td, TableContainer, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody } from "@chakra-ui/react";
 import { FaExpandAlt, FaExternalLinkAlt } from "react-icons/fa";
 import ResultTag from "../components/ResultTag";
 import ExpandedPage from "../components/ExpandedPage";
@@ -30,9 +30,23 @@ const Index = () => {
   };
 
   const openChatHistory = (chatHistory) => {
-    const chatHistoryWindow = window.open("", "_blank");
-    chatHistoryWindow.document.write(`<pre>${chatHistory}</pre>`);
+    const ChatHistoryModal = () => (
+      <Modal isOpen onClose={() => setIsChatHistoryOpen(false)}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Chat History</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <pre>{chatHistory}</pre>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    );
+
+    setIsChatHistoryOpen(true);
   };
+
+  const [isChatHistoryOpen, setIsChatHistoryOpen] = useState(false);
 
   return (
     <Box bg="gray.900" minH="100vh" p={4}>
@@ -88,8 +102,9 @@ const Index = () => {
                 </Td>
                 <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
                   <Button variant="unstyled" onClick={() => openChatHistory(item.chat_history)}>
-                    <Box p={1}>
+                    <Box display="flex" alignItems="center">
                       <FaExternalLinkAlt />
+                      <Box ml={2}>See Chat History</Box>
                     </Box>
                   </Button>
                 </Td>
