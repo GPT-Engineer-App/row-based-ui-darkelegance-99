@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box, Table, Thead, Tbody, Tr, Th, Td, TableContainer, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody } from "@chakra-ui/react";
-import { FaExpandAlt, FaExternalLinkAlt } from "react-icons/fa";
+import { FaExpandAlt, FaExternalLinkAlt, FaRobot, FaUser } from "react-icons/fa";
 import ResultTag from "../components/ResultTag";
 import ExpandedPage from "../components/ExpandedPage";
 
@@ -29,18 +29,31 @@ const Index = () => {
     setIsExpanded(!isExpanded);
   };
 
-  const ChatHistoryModal = ({ isOpen, onClose, chatHistory }) => (
-    <Modal isOpen={isOpen} onClose={onClose} size="4xl">
-      <ModalOverlay />
-      <ModalContent bg="gray.900" color="white" height="600px">
-        <ModalHeader>Chat History</ModalHeader>
-        <ModalCloseButton />
-        <ModalBody>
-          <pre>{chatHistory}</pre>
-        </ModalBody>
-      </ModalContent>
-    </Modal>
-  );
+  const ChatHistoryModal = ({ isOpen, onClose, chatHistory }) => {
+    const parsedChatHistory = JSON.parse(chatHistory);
+
+    return (
+      <Modal isOpen={isOpen} onClose={onClose} size="4xl">
+        <ModalOverlay />
+        <ModalContent bg="gray.900" color="white" minHeight="600px">
+          <ModalHeader>Chat History</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody overflowY="auto" maxHeight="500px">
+            {parsedChatHistory.map((message, index) => (
+              <Box key={index} display="flex" mb={4}>
+                <Box mr={4}>{message.role === "assistant" ? <FaRobot size={24} /> : <FaUser size={24} />}</Box>
+                <Box>
+                  <Box bg={message.role === "assistant" ? "blue.500" : "gray.700"} borderRadius="lg" p={2} maxWidth="80%">
+                    {message.content}
+                  </Box>
+                </Box>
+              </Box>
+            ))}
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    );
+  };
 
   const openChatHistory = (chatHistory) => {
     setSelectedChatHistory(chatHistory);
