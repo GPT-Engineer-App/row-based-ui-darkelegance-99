@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Table, Thead, Tbody, Tr, Th, Td, TableContainer } from "@chakra-ui/react";
+import ResultTag from "../components/ResultTag";
 
 const Index = () => {
   // Dummy data for demonstration
@@ -62,7 +63,7 @@ const Index = () => {
                   {item.personal_injury ? "Yes" : "No"}
                 </Td>
                 <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
-                  {item.result}
+                  <ResultTag result={item.result} />
                 </Td>
                 <Td maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
                   {item.situation_begin}
