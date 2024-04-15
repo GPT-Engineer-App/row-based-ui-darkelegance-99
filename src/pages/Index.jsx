@@ -56,9 +56,9 @@ const Index = () => {
           <Tbody>
             {data.map((item, index) => (
               <Tr key={item.id} bg={index % 2 === 0 ? "gray.900" : "gray.700"} color="white">
-                <Td width="40px">
+                <Td mx={2} display="flex" justifyContent="center">
                   <Button variant="unstyled" onClick={toggleExpand}>
-                    <Box borderWidth={1} borderRadius="md" p={1}>
+                    <Box borderWidth={1} borderRadius="md" p={1} mx={2}>
                       <FaExpandAlt />
                     </Box>
                   </Button>
