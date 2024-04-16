@@ -69,6 +69,7 @@ const Index = () => {
 
   return (
     <Box bg="gray.900" minH="100vh" p={4}>
+      KRISTIAN VERSION
       <TableContainer>
         <Table variant="simple" size="md">
           <Thead>
