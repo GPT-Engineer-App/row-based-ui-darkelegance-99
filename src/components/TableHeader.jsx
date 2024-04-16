@@ -1,27 +1,22 @@
 import React from "react";
 import { Tr, Th } from "@chakra-ui/react";
 
+const EmptyTh = () => <Th color="white" p={1}></Th>;
+
+const HeaderTh = ({ children }) => (
+  <Th color="white" maxW="300px">
+    {children}
+  </Th>
+);
+
+const headers = [{ label: "Result" }, { label: "Personal Injury" }, { label: "Case Started" }, { label: "Situation Begin" }, { label: "Created At" }, { label: "Chat History" }];
+
 const TableHeader = () => (
   <Tr>
-    <Th color="white" p={1}></Th>
-    <Th color="white" maxW="300px">
-      Result
-    </Th>
-    <Th color="white" maxW="300px">
-      Personal Injury
-    </Th>
-    <Th color="white" maxW="300px">
-      Case Started
-    </Th>
-    <Th color="white" maxW="300px">
-      Situation Begin
-    </Th>
-    <Th color="white" maxW="300px">
-      Created At
-    </Th>
-    <Th color="white" maxW="300px">
-      Chat History
-    </Th>
+    <EmptyTh />
+    {headers.map((header, index) => (
+      <HeaderTh key={index}>{header.label}</HeaderTh>
+    ))}
   </Tr>
 );
 
